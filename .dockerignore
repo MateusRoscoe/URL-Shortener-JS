@@ -1,0 +1,7 @@
+.env.example
+.vscode
+README.md
+node_modules
+eslint.config.js
+.editorconfig
+prettier.config.js
