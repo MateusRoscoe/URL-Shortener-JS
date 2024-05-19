@@ -1,7 +1,7 @@
 const { base10_to_base62 } = require('../helpers/common-helper')
 const DataModel = require('../models/data-model')
 
-let counter = 238328
+let counter = 1
 
 class CodeService {
     /**
@@ -12,9 +12,7 @@ class CodeService {
         const currentCounter = CodeService.getAndIncrementCounter()
         const code = base10_to_base62(currentCounter)
 
-        await DataModel.write({ code, data })
-
-        return code
+        return DataModel.write(code, data)
     }
 
     static getAndIncrementCounter() {

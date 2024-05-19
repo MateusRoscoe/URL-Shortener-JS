@@ -24,8 +24,8 @@ class CodeHandler {
      */
     static async post(req, res) {
         const data = req.body.data
-        const code = await CodeService.generateCode(data)
-        res.send({ code })
+        const doc = await CodeService.generateCode(data)
+        res.send(doc)
     }
 }
 

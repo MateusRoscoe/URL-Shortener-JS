@@ -10,16 +10,26 @@ const collection = client
 class DataModel {
     /**
      * Writes data to the database.
-     * @param {Object} doc - The document to be written.
-     * @param {string} doc.code - The code associated with the data.
-     * @param {String} doc.data - The data to be stored.
+     * @param {string} code - The code associated with the data.
+     * @param {String} data - The data to be stored.
+     * 
      */
-    static async write(doc) {
+    static async write(code, data) {
         try {
             // Add timestamp for created_at
-            doc.created_at = new Date()
+            const created_at = new Date()
 
-            const result = await collection.insertOne(doc)
+            await collection.insertOne({
+                code,
+                data,
+                created_at,
+            })
+
+            return {
+                data,
+                code,
+                created_at,
+            }
         } catch (error) {
             console.error(error)
         }
