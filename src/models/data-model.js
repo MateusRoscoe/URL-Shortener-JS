@@ -20,7 +20,6 @@ class DataModel {
             doc.created_at = new Date()
 
             const result = await collection.insertOne(doc)
-            console.log(`Document inserted with ID: ${result.insertedId}`)
         } catch (error) {
             console.error(error)
         }
@@ -33,7 +32,6 @@ class DataModel {
     static async getByCode(code) {
         try {
             const doc = await collection.findOne({ code })
-            console.log(doc)
             return doc
         } catch (error) {
             console.error(error)
