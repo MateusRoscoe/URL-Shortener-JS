@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb')
 const client = new MongoClient(process.env.MONGODB_URI)
 const collection = client
-    .db(process.env.MONGO_DB_NAME)
+    .db(process.env.MONGO_DATABASE)
     .collection(process.env.MONGO_COLLECTION_NAME)
 
 /**
